@@ -1,0 +1,11 @@
+C:\Users\actma\source\repos\My IRAS Project\My IRAS Project\obj\Debug\My IRAS Project.csproj.AssemblyReference.cache
+C:\Users\actma\source\repos\My IRAS Project\My IRAS Project\obj\Debug\My IRAS Project.csproj.SuggestedBindingRedirects.cache
+C:\Users\actma\source\repos\My IRAS Project\My IRAS Project\obj\Debug\My IRAS Project.csproj.CoreCompileInputs.cache
+C:\Users\actma\source\repos\My IRAS Project\My IRAS Project\bin\Debug\My IRAS Project.exe.config
+C:\Users\actma\source\repos\My IRAS Project\My IRAS Project\bin\Debug\My IRAS Project.exe
+C:\Users\actma\source\repos\My IRAS Project\My IRAS Project\bin\Debug\My IRAS Project.pdb
+C:\Users\actma\source\repos\My IRAS Project\My IRAS Project\obj\Debug\My IRAS Project.exe
+C:\Users\actma\source\repos\My IRAS Project\My IRAS Project\obj\Debug\My IRAS Project.pdb
+C:\Users\actma\source\repos\My IRAS Project\My IRAS Project\bin\Debug\Newtonsoft.Json.dll
+C:\Users\actma\source\repos\My IRAS Project\My IRAS Project\bin\Debug\Newtonsoft.Json.xml
+C:\Users\actma\source\repos\My IRAS Project\My IRAS Project\obj\Debug\My IRAS Project.csproj.CopyComplete

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "My IRAS Project", "My IRAS Project\My IRAS Project.csproj", "{796D7824-D992-499B-B13E-BAC2EE3B3989}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{796D7824-D992-499B-B13E-BAC2EE3B3989}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{796D7824-D992-499B-B13E-BAC2EE3B3989}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{796D7824-D992-499B-B13E-BAC2EE3B3989}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{796D7824-D992-499B-B13E-BAC2EE3B3989}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7DB2F293-2088-4DBD-ABA4-E10713D6D6A0}
+	EndGlobalSection
+EndGlobal

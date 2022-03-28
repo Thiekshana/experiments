@@ -16,6 +16,7 @@ namespace My_IRAS_Project.classes
         [Display(Name = "House Pets")]
         public List<string> Pets { get; set; }
 
+
         //public bool Equals(Property other)
         //{
         //    return this.Address.Equals(other.Address) && this.Level.Equals(other.Level) && this.Unit.Equals(other.Unit);

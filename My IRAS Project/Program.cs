@@ -9,7 +9,7 @@ using System.Reflection;
 
 namespace My_IRAS_Project
 {
-    static  class Program
+    static class Program
     {
 
 
@@ -21,15 +21,16 @@ namespace My_IRAS_Project
             var label = string.Empty;
 
 
-           // Extended extended = new Extended();
 
-           // test something
+            // Extended extended = new Extended();
+
+            // test something
 
 
-           //   List<dynamic> propertyList = new List<dynamic>();
+            //   List<dynamic> propertyList = new List<dynamic>();
 
             List<Property> current = new List<Property>()
-            { 
+            {
                 new Property("Address B", new List<string>(){ "10-156", "3-14"}, new List<string>(){ "DogA", "DogB"}),
                 new Property("Address A", new List<string>(){ "10-256", "3-14"}, new List<string>(){ "DogC", "DogD"})
             };
@@ -50,97 +51,34 @@ namespace My_IRAS_Project
 
             var res = DeepCompare(current, revised, identifier, objectsToCompare);
 
-            foreach (var item in revised)
+
+            List<PropertyDetail> propertyFinalList = new List<PropertyDetail>();
+
+            // var prop = (List<List<Summary>>)res.GetType().GetProperty("Home Address").GetValue(res, null);
+            foreach (List<Summary> result in res)
             {
-                var currentMatchedPropertyItem = current.Where(x => x.Address == item.Address).FirstOrDefault();
-                //var currentMatchedPropertyItemIndex = current.IndexOf(currentMatchedPropertyItem);
-
-                if(currentMatchedPropertyItem != null)
+                PropertyDetail finalSummaryModel = new PropertyDetail();
+                var summaryListNew = new List<Summary>();
+                foreach (Summary obj in result)
                 {
-                    label = "Address";
-                    currentValue = currentMatchedPropertyItem.Address;
-                    revisedValue = currentValue;
-
-                    //list.Add(new Summary(label, currentValue, revisedValue));
-                    var testObjectSetValues = new Summary(label, currentValue, revisedValue);
-
-                    testObjectSetValues.SetValue(typeof(Property), false);
-
-                    foreach (var unitLevel in item.Units)
+                    if (obj._title == "Home Address")
                     {
-                        var currentMatchedUnitLevelItem = currentMatchedPropertyItem
-                            .Units.
-                            Where(x => x == unitLevel).FirstOrDefault();
-
-                        if (currentMatchedUnitLevelItem != null)
-                        {
-                            label = "unit-level";
-                            currentValue = currentMatchedUnitLevelItem;
-                            revisedValue = currentValue;
-                            list.Add(new Summary(label, currentValue, revisedValue));
-
-                            currentMatchedPropertyItem.Units.Remove(currentMatchedUnitLevelItem);
-                        }
-
-                        else
-                        {
-                            label = "unit-level";
-                            currentValue = "NotApplicable";
-                            revisedValue = unitLevel;
-                            list.Add(new Summary(label, currentValue, revisedValue));
-                        }
+                        finalSummaryModel.address = obj;
                     }
 
-                    //add removed units current
-                    foreach (var removedUnits in currentMatchedPropertyItem.Units)
+                    else if (obj._title == "Level-Units")
                     {
-                        label = "unit-level";
-                        currentValue = removedUnits;
-                        revisedValue = "Removed";
-                        list.Add(new Summary(label, currentValue, revisedValue));
-                    }
+                        var newObj = new Summary(obj._title, obj._currentValue, obj._revisedValue);
 
-                    current.Remove(currentMatchedPropertyItem);
-  
-                   // extended.Summary = list;
+                        summaryListNew.Add(newObj);
+
+                    }
+                    finalSummaryModel.unitLevels = (summaryListNew);
+
                 }
-
-                else
-                {
-                    label = "Address";
-                    revisedValue = item.Address;
-                    currentValue = "NotApplicable";
-                    list.Add(new Summary(label, currentValue, revisedValue));
-
-                    foreach (var newUnitsAdded in item.Units)
-                    {
-                        label = "unit-level";
-                        revisedValue = newUnitsAdded;
-                        currentValue = "NotApplicable";
-                        list.Add(new Summary(label, currentValue, revisedValue));
-                    }
-                }
-
+                propertyFinalList.Add(finalSummaryModel);
             }
 
-            // Add removed properties
-
-            foreach(var removedProperties in current)
-            {
-
-                label = "Address";
-                revisedValue = "Not Applicable";
-                currentValue = removedProperties.Address;
-                list.Add(new Summary(label, currentValue, revisedValue));
-
-                foreach (var removedLevelUnits in removedProperties.Units)
-                {
-                    label = "unit-level";
-                    revisedValue = "Not Applicable";
-                    currentValue = removedLevelUnits;
-                    list.Add(new Summary(label, currentValue, revisedValue));
-                }
-            }
 
         }
 
@@ -170,7 +108,7 @@ namespace My_IRAS_Project
 
                     var sumObj = new Summary(itemDisplayName.Name, itemValue.ToString(), itemValue.ToString());
                     sumObj.SetValue(typeof(T), true);
-                    list.Add(sumObj);   
+                    list.Add(sumObj);
 
                     foreach (PropertyInfo objectToCompare in listOfObjectsToCompare)
                     {
@@ -196,7 +134,7 @@ namespace My_IRAS_Project
                                     var sumObj2 = new Summary(objectDisplayName.Name, currentMatchedFirstObj, currentMatchedFirstObj);
                                     sumObj2.SetValue(typeof(T), false);
                                     list.Add(sumObj2);
-                                    
+
 
                                     currentMatchedFirstObjList.Remove(currentMatchedFirstObj);
                                 }
@@ -247,7 +185,7 @@ namespace My_IRAS_Project
                     sumObj2.SetValue(typeof(T), true);
                     list.Add(sumObj2);
 
-                    foreach (PropertyInfo objectToCompare in objectsToCompare)
+                    foreach (PropertyInfo objectToCompare in listOfObjectsToCompare)
                     {
                         var objectDisplayName = (DisplayAttribute)objectToCompare.GetCustomAttribute(typeof(DisplayAttribute));
 
@@ -271,7 +209,7 @@ namespace My_IRAS_Project
 
             //Add reamining removed items from current 
 
-            foreach(var item in currentListOfObjects)
+            foreach (var item in currentListOfObjects)
             {
                 var list = new List<Summary>();
 
@@ -286,7 +224,7 @@ namespace My_IRAS_Project
 
                 //add all the objects
 
-                foreach (PropertyInfo objectToCompare in objectsToCompare)
+                foreach (PropertyInfo objectToCompare in listOfObjectsToCompare)
                 {
                     var objectDisplayName = (DisplayAttribute)objectToCompare.GetCustomAttribute(typeof(DisplayAttribute));
 
@@ -375,7 +313,7 @@ namespace My_IRAS_Project
                 public string id { get; set; }
                 public string title { get; set; }
             }
-            
+
         }
 
         public class compareClass : IComparer<Person>

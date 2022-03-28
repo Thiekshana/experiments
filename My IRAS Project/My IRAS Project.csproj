@@ -52,9 +52,11 @@
     <Compile Include="classes\Compare.cs" />
     <Compile Include="classes\EqualityCompare.cs" />
     <Compile Include="classes\Extended.cs" />
+    <Compile Include="classes\FinalSummaryModel.cs" />
     <Compile Include="classes\Land.cs" />
     <Compile Include="classes\Property.cs" />
     <Compile Include="classes\Summary.cs" />
+    <Compile Include="classes\SummaryViewModel.cs" />
     <Compile Include="classes\Values.cs" />
     <Compile Include="classes\TransactionDto.cs" />
     <Compile Include="Program.cs" />

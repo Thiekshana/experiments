@@ -6,11 +6,17 @@ using System.Threading.Tasks;
 
 namespace My_IRAS_Project.classes
 {
-    internal class Summary : Values
+    public class Summary : SummaryViewModel
     {
+        string Title { get; set; }
+        string CurrentValue { get; set; }
+        string RevisedValue { get; set; }
         public Summary(string title, string currentValue, string revisedValue)
             : base(title, currentValue, revisedValue)
         {
+            Title = title;
+            CurrentValue = currentValue;
+            RevisedValue = revisedValue;
         }
     }
 }

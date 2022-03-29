@@ -1,6 +1,7 @@
 ﻿using My_IRAS_Project.classes;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using ObjectsComparer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -35,11 +36,30 @@ namespace My_IRAS_Project
                 new Property("Address A", new List<string>(){ "10-256", "3-14"}, new List<string>(){ "DogC", "DogD"})
             };
 
+            List<Property> revised2 = new List<Property>()
+            {
+                new Property("Address B", new List<string>(){ "10-156", "3-14"}, new List<string>(){ "DogA", "DogB"}),
+                new Property("Address A", new List<string>(){ "10-256", "3-14"}, new List<string>(){ "DogC", "DogD"})
+            };
+
             List<Property> revised = new List<Property>()
             {
                 new Property("Address A", new List<string>(){ "10-256", "6-14", "7-15"}, new List<string>(){ "DogA", "DogB"}),
                 new Property("Address C", new List<string>(){ "10-256", "3-14"}, new List<string>(){ "CatA", "CatB"}),
+                new Property("Address A", new List<string>(){ "10-256", "3-14"}, new List<string>(){ "DogC", "DogD"})
             };
+
+            ObjectComparer pc = new ObjectComparer();
+
+            IEnumerable<Property> except = revised2.Except(current, pc);
+
+            bool isEqual = revised2.SequenceEqual(current, new ObjectComparer());
+
+
+            var comparer = new Comparer();
+
+            IEnumerable<Difference> differences;
+            var isEqualOrNot = comparer.Compare((List<Property>)current, (List<Property>)revised2, out differences);
 
             //property config
             Type type = typeof(Property);
@@ -316,20 +336,20 @@ namespace My_IRAS_Project
 
         }
 
-        public class compareClass : IComparer<Person>
-        {
-            public int Compare(Person x, Person y)
-            {
-                if (x == null || y == null)
-                {
-                    return 0;
-                }
+        //public class compareClass : IComparer<Person>
+        //{
+        //    public int Compare(Person x, Person y)
+        //    {
+        //        if (x == null || y == null)
+        //        {
+        //            return 0;
+        //        }
 
-                // CompareTo() method
-                return x.age.CompareTo(y.age);
+        //        // CompareTo() method
+        //        return x.age.CompareTo(y.age);
 
-            }
-        }
+        //    }
+        //}
 
     }
 }

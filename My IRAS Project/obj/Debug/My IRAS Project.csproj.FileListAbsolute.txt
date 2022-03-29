@@ -20,3 +20,4 @@ C:\Users\actma\source\repos\experiments\My IRAS Project\obj\Debug\My IRAS Projec
 C:\Users\actma\source\repos\experiments\My IRAS Project\obj\Debug\My IRAS Project.csproj.CopyComplete
 C:\Users\actma\source\repos\experiments\My IRAS Project\obj\Debug\My IRAS Project.exe
 C:\Users\actma\source\repos\experiments\My IRAS Project\obj\Debug\My IRAS Project.pdb
+C:\Users\actma\source\repos\experiments\My IRAS Project\bin\Debug\ObjectsComparer.dll

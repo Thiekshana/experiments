@@ -21,3 +21,5 @@ C:\Users\actma\source\repos\experiments\My IRAS Project\obj\Debug\My IRAS Projec
 C:\Users\actma\source\repos\experiments\My IRAS Project\obj\Debug\My IRAS Project.exe
 C:\Users\actma\source\repos\experiments\My IRAS Project\obj\Debug\My IRAS Project.pdb
 C:\Users\actma\source\repos\experiments\My IRAS Project\bin\Debug\ObjectsComparer.dll
+C:\Users\actma\Source\Repos\experiments\My IRAS Project\bin\Debug\Mapster.Core.dll
+C:\Users\actma\Source\Repos\experiments\My IRAS Project\bin\Debug\Mapster.dll

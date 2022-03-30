@@ -16,6 +16,31 @@ namespace My_IRAS_Project.classes
         [Display(Name = "House Pets")]
         public List<string> Pets { get; set; }
 
+        public Decimal number { get; set; }
+
+        public DateTimeOffset date { get; set; }
+
+        public MyEnum myEnum { get; set; }
+        public enum MyEnum
+        {
+            Blue, 
+            Green,
+            Purple
+        }
+
+        public List<Moms> Momas { get; set; }
+
+        public bool IsMyEnum { get; set; }
+        public Property()
+        {
+
+        }
+
+        public class Moms
+        {
+           public string Name { get; set; }
+        }
+
 
         //public bool Equals(Property other)
         //{

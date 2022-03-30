@@ -1,4 +1,5 @@
-﻿using My_IRAS_Project.classes;
+﻿using Mapster;
+using My_IRAS_Project.classes;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using ObjectsComparer;
@@ -7,6 +8,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
+using static My_IRAS_Project.classes.Property;
 
 namespace My_IRAS_Project
 {
@@ -71,6 +73,35 @@ namespace My_IRAS_Project
 
             var res = DeepCompare(current, revised, identifier, objectsToCompare);
 
+            Moms momsA = new Moms();
+            momsA.Name = "Reeta";
+            Moms momsB = new Moms();
+            momsB.Name = "Geetha";
+
+            List<Moms> mom = new List<Moms>() { momsA, momsB };
+  
+
+            Property prop = new Property()
+            {
+                Address = "AddressB",
+                Units = new List<string> { "12", "21" },
+                Pets = new List<string> { "DogA", "DogB" },
+                number = 1.23m,
+                Momas = mom,
+                date = DateTimeOffset.Parse("2022-01-04"),
+                IsMyEnum = false
+            };
+
+
+            var Adapt = TypeAdapterConfig<Property, PropertyCardDto>.NewConfig().Map(dest => dest.Address, src => string.Format("{0} some value", src.Address))
+                .Map(dest => dest.number, src => src.number)
+                .Map(dest => dest.myEnum, src => src.myEnum)
+                .Map(dest => dest.date, src => src.date)
+                .Map(dest => dest.Moms, src => src.Momas.Select(x=>x.Name).ToList())
+                .Map(dest => dest.IsMyEnum, src => (src.IsMyEnum) ? "this is true":"not true");
+
+
+            PropertyCardDto destination = prop.Adapt<Property, PropertyCardDto>();
 
             List<PropertyDetail> propertyFinalList = new List<PropertyDetail>();
 
